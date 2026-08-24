@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "student_name": "Dao Van Dat",
+    "student_id": "2A202601302",
+    "group_id": "INDIVIDUAL-2A202601302",
+    "submitted_at": "2026-08-24T23:17:39+07:00"
+  },
+  "industry": "mobility-autonomous-driving",
+  "product_context": {
+    "product_name": "ADAS hỗ trợ giữ làn đường và phanh khẩn cấp",
+    "product_stage": "pilot",
+    "problem_statement": "Hỗ trợ giảm nguy cơ xe lệch làn hoặc va chạm phía trước trong quá trình lái xe trên cao tốc, đồng thời duy trì khoảng cách an toàn với xe phía trước, đặc biệt khi người lái phản ứng chậm hoặc mất tập trung.",
+    "target_users": ["Người lái xe trong chương trình pilot", "Kỹ sư an toàn và tài xế thử nghiệm"],
+    "value_hypothesis": "Nếu hệ thống phát hiện lệch làn và nguy cơ va chạm đủ sớm, hệ thống có thể giảm số sự cố mất làn và va chạm phía trước mà không làm người lái phụ thuộc quá mức vào tự động hóa.",
+    "in_scope": ["Phát hiện làn đường trên cao tốc", "Cảnh báo lệch làn", "Hỗ trợ giữ làn", "Phát hiện chướng ngại vật phía trước và phanh khẩn cấp", "Tự động tăng hoặc giảm tốc trong giới hạn thiết kế để duy trì khoảng cách với xe phía trước"],
+    "non_goals": ["Không phải xe tự hành hoàn toàn", "Không vận hành ngoài cao tốc, ban ngày hoặc thời tiết bình thường", "Không thay thế trách nhiệm và sự giám sát liên tục của người lái"],
+    "user_journey_moment": "Khi xe đang chạy trên cao tốc và có nguy cơ lệch làn hoặc va chạm với xe/chướng ngại vật phía trước.",
+    "target_launch_or_review_date": "2026-09-30",
+    "automation_level": "semi-automated",
+    "fallback_experience": "Khi cảm biến không đủ tin cậy hoặc hệ thống phát hiện điều kiện ngoài phạm vi, hệ thống phải cảnh báo rõ ràng, giảm hoặc ngừng can thiệp, yêu cầu người lái tiếp quản và ghi nhận sự kiện để đội an toàn review. Nếu nguy cơ va chạm tức thời, hệ thống có thể phanh khẩn cấp trong giới hạn thiết kế.",
+    "decision_reversibility": "hard-to-reverse"
+  },
+  "system_profile": {
+    "purpose": "Hỗ trợ người lái trên các chuyến đường dài hoặc khi tắc đường bằng cách giảm nguy cơ mất tập trung, lệch làn và va chạm phía trước trong phạm vi thiết kế.",
+    "user_groups": ["Người sử dụng xe VF8", "Người lái thử nghiệm trong chương trình pilot", "Đội an toàn và vận hành pilot"],
+    "decision_impact": "Hệ thống có thể cảnh báo, hỗ trợ điều chỉnh giữ làn, phanh khi phát hiện nguy cơ và tự động tăng hoặc giảm tốc để duy trì khoảng cách với xe phía trước; người lái vẫn là người chịu trách nhiệm và có quyền can thiệp.",
+    "data_types": ["Dữ liệu LiDAR hoặc cảm biến nhận diện phương tiện xung quanh", "Vị trí và lộ trình từ GPS", "Khoảng cách đến vật thể từ cảm biến quanh xe", "Tốc độ, hướng di chuyển và trạng thái điều khiển của xe"],
+    "deployment_context": "Pilot trên xe VF8 đã được cấu hình phần cứng và phần mềm cần thiết cho ADAS, trong điều kiện đường cao tốc, ban ngày và thời tiết bình thường; khả năng hoạt động ngoài phạm vi này chưa được xác nhận.",
+    "target_markets": ["Thị trường pilot tại Việt Nam - cần xác nhận phạm vi chính thức"],
+    "system_boundary": {
+      "model": "Các mô hình nhận diện làn đường, phương tiện và chướng ngại vật cùng logic ước lượng nguy cơ; model và phiên bản cụ thể chưa được xác định trong pilot.",
+      "application": "Phần mềm ADAS trên xe, giao diện/cảnh báo trong xe và ứng dụng hiển thị trạng thái để hỗ trợ người lái lựa chọn; cơ chế triển khai cụ thể cần được xác nhận.",
+      "people": ["Người lái và chủ xe VF8", "Kỹ sư và tài xế an toàn trong pilot", "Đội vận hành, bảo trì và điều tra sự cố"],
+      "vendors": ["VinFast với vai trò nhà sản xuất xe và chủ thể triển khai pilot", "Nhà cung cấp cảm biến, phần mềm hoặc model - chưa xác định"],
+      "upstream_inputs": ["Dữ liệu LiDAR/camera/radar hoặc cảm biến nhận diện vật thể", "Dữ liệu GPS và bản đồ nếu được sử dụng", "Tốc độ, hướng di chuyển, trạng thái phanh/vô-lăng và tín hiệu điều khiển xe", "Trạng thái sẵn sàng và chất lượng tín hiệu của cảm biến"],
+      "downstream_decisions": ["Cảnh báo người lái về lệch làn hoặc nguy cơ va chạm", "Hỗ trợ hoặc tự động điều chỉnh vô-lăng trong giới hạn thiết kế", "Kích hoạt phanh khẩn cấp khi đạt ngưỡng nguy cơ", "Duy trì hoặc điều chỉnh tốc độ và ghi nhận sự kiện để review an toàn"]
+    }
+  },
+  "industry_risk_snapshot": {
+    "harm_severity": 5,
+    "high_stakes": 5,
+    "sensitive_data": 3,
+    "affected_scale": 2,
+    "human_review_need": 5,
+    "rationale": "Harm severity và high-stakes ở mức 5 vì lỗi giữ làn, phanh khẩn cấp hoặc điều chỉnh tốc độ có thể gây va chạm và thương tích. Sensitive data ở mức 3 vì hệ thống sử dụng vị trí GPS, dữ liệu cảm biến, trạng thái xe và hành vi lái xe. Affected scale ở mức 2 vì sản phẩm mới ở pilot giới hạn. Human review need ở mức 5 vì người lái phải giám sát liên tục, có quyền can thiệp và không được coi hệ thống là xe tự hành. Đây là mức triage rủi ro sản phẩm, không phải phân loại pháp lý."
+  },
+  "legal_classification": {
+    "vietnam": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "Hệ thống ADAS có thể tác động trực tiếp đến hướng lái, phanh và tốc độ, nên có khả năng thuộc nhóm hệ thống AI có rủi ro cao hoặc chịu yêu cầu an toàn sản phẩm và phê duyệt phương tiện. Tuy nhiên, phạm vi pháp lý chính xác tại Việt Nam còn phụ thuộc vào cấu trúc triển khai, vai trò của nhà sản xuất, quy trình phê duyệt xe và danh mục áp dụng. Cần legal review trước khi mở rộng pilot hoặc đưa vào production.",
+      "source_ids": ["SRC-03", "SRC-04"]
+    },
+    "eu": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "Hệ thống ADAS hỗ trợ điều khiển hướng lái, phanh và tốc độ nên có khả năng được xem là safety component của phương tiện và có thể thuộc nhóm high-risk theo EU AI Act nếu các điều kiện về sản phẩm được quản lý và conformity assessment được đáp ứng. Do chưa xác định thị trường EU, cấu trúc sản phẩm và vai trò provider/deployer, cần legal review trước khi kết luận phân loại.",
+      "source_ids": ["SRC-05", "SRC-06"]
+    },
+    "other_markets": "Not assessed; only Vietnam and EU are in scope for this lab.",
+    "legal_review_required": true
+  },
+  "product_metrics": {
+    "success_kpi": "Tỷ lệ chuyến pilot hoàn thành trong ODD đã phê duyệt, không có sự cố an toàn do ADAS và không vi phạm yêu cầu takeover; chỉ chấp nhận KPI khi tất cả guardrail đạt.",
+    "risk_kri": "Theo dõi tỷ lệ người lái phải takeover, tỷ lệ cảnh báo không được phản hồi, tỷ lệ phanh nhầm, tỷ lệ không phát hiện vật cản, sự kiện xe lệch làn và lỗi cảm biến; mục tiêu là không có va chạm do ADAS, 100% sự kiện nghiêm trọng được ghi log và review, đồng thời thiết lập baseline trong pilot.",
+    "guardrail_metric": "Không có va chạm hoặc thương tích được quy cho ADAS; không vận hành ngoài ODD đã phê duyệt; không tiếp tục ADAS khi cảm biến an toàn bị lỗi; 100% sự kiện va chạm, near-miss, phanh nhầm, mất làn và takeover nghiêm trọng phải được ghi log và review.",
+    "review_cadence": "Review hàng tuần trong pilot; review ngay sau mọi vụ va chạm, near-miss nghiêm trọng, phanh nhầm, lỗi cảm biến, takeover thất bại hoặc thay đổi ODD, scope hay vendor."
+  },
+  "release_decision": {
+    "accountable_product_owner": "ADAS Product Owner",
+    "risk_acceptance_owner": "Head of Vehicle Safety hoặc Safety Review Board",
+    "independent_reviewer": "Independent Functional Safety / ADAS Reviewer",
+    "decision": "conditional-go",
+    "release_blockers": ["GAP-01: Driver monitoring and takeover evidence incomplete", "GAP-02: ODD and sensor-health gating evidence incomplete", "GAP-03: Incident logging and pause/rollback process incomplete"],
+    "release_conditions": ["Chỉ áp dụng cho pilot giới hạn trong ODD đã phê duyệt", "Hoàn thành GAP-01, GAP-02 và GAP-03 với acceptance evidence", "Không có sự cố nghiêm trọng chưa được điều tra", "Không mở rộng pilot trước khi ADAS Safety Lead hoặc Safety Review Board phê duyệt"],
+    "next_review_trigger": "Bất kỳ vụ va chạm, near-miss nghiêm trọng, phanh nhầm, takeover thất bại, lỗi cảm biến lặp lại, thay đổi ODD, model, vendor hoặc đề xuất mở rộng pilot.",
+    "residual_risk_rationale": "Dù có giới hạn ODD, giám sát người lái, logging và quy trình tạm dừng, ADAS vẫn có thể nhận diện sai làn đường, vật cản hoặc trạng thái giao thông. Hậu quả tiềm tàng vẫn nghiêm trọng vì hệ thống tác động trực tiếp đến hướng lái, phanh và tốc độ. Do đó chỉ chấp nhận pilot giới hạn khi các release blocker được đóng và mọi sự kiện nghiêm trọng được review."
+  }
+}
